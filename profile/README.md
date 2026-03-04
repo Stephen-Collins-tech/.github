@@ -7,13 +7,17 @@ We build tools and run analyses at the intersection of software complexity, code
 ---
 
 <!-- DYNAMIC:START — updated daily via GitHub Actions -->
-## Trending Repo Risk Index
+## Recent OSS Analyses
 
-*Pipeline initializing. Check back soon.*
+*Last updated: 2026-03-04 · [Full dataset coming soon](https://hotspots.dev)*
 
 | Repository | Highest Risk File | LRS |
 |---|---|---|
-| — | — | — |
+| [tldraw/tldraw](https://github.com/tldraw/tldraw) | `editor/Editor.ts` | 19.3 |
+| [FlowiseAI/Flowise](https://github.com/FlowiseAI/Flowise) | `OpenAIAssistant/OpenAIAssistant.ts` | 21.2 |
+| [TanStack/query](https://github.com/TanStack/query) | `src/createPersister.ts` | 16.8 |
+| [OpenCut-app/OpenCut](https://github.com/OpenCut-app/OpenCut) | `timeline/use-timeline-drag-drop.ts` | 16.6 |
+| [eslint/eslint](https://github.com/eslint/eslint) | `js/css-vars-ponyfill@2.js` | 26.8 |
 
 <!-- DYNAMIC:END -->
 
@@ -50,7 +54,7 @@ brew install Stephen-Collins-tech/tap/hotspots
 
 **Linux**
 ```sh
-curl -fsSL https://hotspots.dev/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/Stephen-Collins-tech/hotspots/main/install.sh | sh
 ```
 
 ---

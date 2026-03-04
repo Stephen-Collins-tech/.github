@@ -41,7 +41,7 @@ jobs:
       # Placeholder for actual pipeline:
       #
       # - name: Install Hotspots
-      #   run: curl -fsSL https://hotspots.dev/install.sh | sh
+      #   run: curl -fsSL https://raw.githubusercontent.com/Stephen-Collins-tech/hotspots/main/install.sh | sh
       #
       # - name: Analyze repo
       #   run: |

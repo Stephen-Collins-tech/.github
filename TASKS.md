@@ -14,6 +14,7 @@ Principle: **Marketing for engineers should look like engineering.**
 - [ ] Does Hotspots have a public API? Or do we build the pipeline as part of this?
 - [ ] Hall of fame examples — user-selected or AI-curated from known gnarly OSS?
 - [ ] ~~`hotspots.dev/api/random` Easter egg~~ — endpoint doesn't exist yet, removed from README for now
+- [x] Install script URL: `https://raw.githubusercontent.com/Stephen-Collins-tech/hotspots/main/install.sh` (not hotspots.dev/install.sh)
 
 ---
 
