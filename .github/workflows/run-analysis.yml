@@ -1,0 +1,65 @@
+name: Run OSS Analysis
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo_url:
+        description: 'GitHub repo URL to analyze (e.g. https://github.com/redis/redis)'
+        required: true
+        type: string
+      output_path:
+        description: 'Output folder under open-source-breakdowns/ (e.g. redis)'
+        required: true
+        type: string
+  schedule:
+    # Weekly full refresh of tracked repos — Sundays at 02:00 UTC
+    - cron: '0 2 * * 0'
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # TODO: wire actual Hotspots pipeline
+      - name: Run Hotspots
+        run: |
+          echo "Analysis pipeline not yet wired."
+          echo "Target: ${{ inputs.repo_url }}"
+          echo "Output: open-source-breakdowns/${{ inputs.output_path }}/"
+          echo ""
+          echo "When live, this step will:"
+          echo "  1. cargo install hotspots"
+          echo "  2. hotspots ${{ inputs.repo_url }} --output json > metrics.json"
+          echo "  3. Generate analysis.md and risk-map.png"
+          echo "  4. Commit to open-source-breakdowns/${{ inputs.output_path }}/"
+
+      # Placeholder for actual pipeline:
+      #
+      # - name: Install Hotspots
+      #   run: curl -fsSL https://hotspots.dev/install.sh | sh
+      #
+      # - name: Analyze repo
+      #   run: |
+      #     mkdir -p open-source-breakdowns/${{ inputs.output_path }}
+      #     hotspots ${{ inputs.repo_url }} \
+      #       --output json \
+      #       > open-source-breakdowns/${{ inputs.output_path }}/metrics.json
+      #
+      # - name: Generate report
+      #   run: |
+      #     python3 scripts/generate-breakdown.py \
+      #       open-source-breakdowns/${{ inputs.output_path }}/metrics.json \
+      #       > open-source-breakdowns/${{ inputs.output_path }}/analysis.md
+      #
+      # - name: Commit results
+      #   run: |
+      #     git config user.name "github-actions[bot]"
+      #     git config user.email "github-actions[bot]@users.noreply.github.com"
+      #     git add open-source-breakdowns/
+      #     git commit -m "analysis: ${{ inputs.output_path }} $(date -u +'%Y-%m-%d')"
+      #     git push

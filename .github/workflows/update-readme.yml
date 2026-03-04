@@ -1,0 +1,45 @@
+name: Update README — Trending Repo Risk Index
+
+on:
+  schedule:
+    # Runs daily at 06:00 UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch: # allow manual trigger
+
+jobs:
+  update-risk-index:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # TODO: Replace this step with actual Hotspots pipeline once API is available
+      - name: Run Hotspots analysis
+        run: |
+          echo "Hotspots pipeline not yet wired."
+          echo "See: https://hotspots.dev"
+          echo "This workflow will inject results into profile/README.md between"
+          echo "<!-- DYNAMIC:START --> and <!-- DYNAMIC:END --> markers."
+
+      # Placeholder: when pipeline is live, replace above with:
+      #
+      # - name: Install Hotspots
+      #   run: curl -fsSL https://hotspots.dev/install.sh | sh
+      #
+      # - name: Run analysis on trending repos
+      #   run: |
+      #     hotspots trending --output json > /tmp/trending.json
+      #
+      # - name: Inject results into README
+      #   run: python3 scripts/inject-readme.py /tmp/trending.json profile/README.md
+
+      - name: Commit updated README
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add profile/README.md
+          git diff --cached --quiet || git commit -m "chore: update trending repo risk index [skip ci]"
+          git push
