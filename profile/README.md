@@ -44,8 +44,8 @@ We build tools and run analyses at the intersection of software complexity, code
 
 ## Open Artifacts
 
-- [`hall-of-fame/`](./hall-of-fame/) — Legendary gnarly functions from OSS history, analyzed
-- [`ai-code-studies/`](./ai-code-studies/) — Research into AI-generated code patterns and failure cases
+- [`hall-of-fame/`](https://github.com/Stephen-Collins-tech/.github/tree/main/hall-of-fame) — Legendary gnarly functions from OSS history, analyzed
+- [`ai-code-studies/`](https://github.com/Stephen-Collins-tech/.github/tree/main/ai-code-studies) — Research into AI-generated code patterns and failure cases
 
 ---
 
